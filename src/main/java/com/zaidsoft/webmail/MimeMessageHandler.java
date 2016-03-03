@@ -23,8 +23,8 @@ package com.zaidsoft.webmail;
  * @author DevTeam Zaidsoft <info@zaidsoft.com>
  *
  */
+
 import com.zaidsoft.net.HtmlDigester;
-import static com.zaidsoft.webmail.IMAPBean.Use_UID_as_MsgID;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
@@ -35,7 +35,6 @@ import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Multipart;
 import javax.mail.Part;
-import javax.mail.UIDFolder;
 import javax.mail.internet.ContentType;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.ParseException;
@@ -160,7 +159,7 @@ public class MimeMessageHandler extends java.lang.Object {
             /**
              * When sending mails from OutlookExpress it attaches image/jpg as
              * application/octet-stream so we need to rely on filename
-             *
+                 *
              */
             String fileName = part.getFileName();
             if (fileName == null) {
@@ -277,12 +276,7 @@ public class MimeMessageHandler extends java.lang.Object {
     }
 
     public String getMessageID() throws MessagingException {
-        if (Use_UID_as_MsgID) {
-            UIDFolder folder = (UIDFolder) message.getFolder();
-            return String.valueOf(folder.getUID(message));
-        } else {
-            return ((javax.mail.internet.MimeMessage) message).getMessageID();
-        }
+        return ((javax.mail.internet.MimeMessage) message).getMessageID();
     }
 
     public boolean containsAttachment() throws MessagingException, IOException {

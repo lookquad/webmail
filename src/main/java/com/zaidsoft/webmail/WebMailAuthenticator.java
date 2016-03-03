@@ -34,7 +34,7 @@ public class WebMailAuthenticator {
     // Process the HTTP POST request
     public static void authenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession ses = request.getSession(true);
-        IMAPBean b = new IMAPBean();
+        POP3MailBean b = new POP3MailBean();
         SMTPBean s = new SMTPBean();
 
         boolean advMode = request.getParameter("host") != null;
