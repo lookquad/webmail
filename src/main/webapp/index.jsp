@@ -111,7 +111,7 @@
 		
 		</script>
 
-<script type="text/javascript" src="../UI-Resources/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="UI-Resources/bootstrap/js/bootstrap.min.js"></script>
 
 </body>
 </html>
