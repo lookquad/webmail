@@ -20,7 +20,7 @@ function checkEmpty(){
 </script>
 <link rel=stylesheet type="text/css" href="skins/normal-default.css">
 </head>
-<jsp:useBean id="b" scope="session" class="com.zaidsoft.webmail.POP3MailBean" />
+<jsp:useBean id="b" scope="session" class="com.zaidsoft.webmail.IMAPBean" />
 <body>
 <%----------- Include the Header --------------%>
 <jsp:include page="header.jsp?depth=../" flush="true"/> 
@@ -54,7 +54,7 @@ function checkEmpty(){
                        m.getReplyText();
     }
 %>
-<jsp:include page="left_side_bar.jsp" flush="true"/>
+<jsp:include page="sidebar.jsp" flush="true"/>
 <BR>
 <form name="compose" action="perform.jsp?act=send" enctype="multipart/form-data" method="post" onSubmit="return checkEmpty();">
 <table cellspacing="1" cellpadding="1" border="1" rules="rows" frame="below">
