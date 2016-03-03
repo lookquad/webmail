@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@page contentType="text/html"%> 
 <%@ page import="com.zaidsoft.webmail.*" %>
 <%
@@ -25,120 +24,160 @@
     } 
 
 %>
-=======
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
->>>>>>> refs/remotes/origin/NewLogin
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebMail :: Login</title>
-
-<link rel=stylesheet type="text/css" href="../WM-UI-Resources/WM-Resources/css/login.css">
-<link rel=stylesheet type="text/css" href="../WM-UI-Resources/bootstrap/css/bootstrap.min.css">
-<link rel=stylesheet type="text/css" href="../WM-UI-Resources/bootstrap/css/bootstrap-theme.min.css">
-
-
-<script type="text/javascript" src="../WM-UI-Resources/plugins/jQuery/jquery.min.js"></script>
-<script type="text/javascript" src="../WM-UI-Resources/plugins/jQuery/jquery.validate.min.js"></script>
-</head>
-
-
-<body>
-
-<div class="container">
-    <div class="row complete-page">
-        <div class="col-sm-6 col-md-4 col-md-offset-4">
-            <h1 class="text-center ">WebMail</h1>
-            <h4 class="text-center login-title">Sign in to continue to WebMail</h4>
-            <div class="account-wall">
-                <!-- <img class="profile-img" src="" alt=""> -->
-                <form class="form-signin" action="WMAuth" method = "POST">
-                 
-    			<label class="lab" for="exampleInputEmail">Email address</label>
-    			
-    			<div class="form-group has-feedback">
-            <input type="email" class="form-control" name="email" placeholder="yourname@example.com" required  autofocus>
-            <span class="glyphicon glyphicon-envelope form-control-feedback glyph-color"></span>
-          </div>
-    			
-                <!-- <input type="email" class="form-control" name="email" placeholder="yourname@example.com" required  autofocus >
-                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span> -->
-                
-                <div class="collapse out" id="adv-login">
-                <label class="lab" for="exampleInputEmailServer">Mail server</label>
-                
-                <div class="form-group has-feedback">
-            <input type="text" class="form-control" name="host" placeholder="imap.example.com">
-            <span class="glyphicon glyphicon-globe form-control-feedback glyph-color"></span>
-          </div>
-                
-                <!-- <input type="text" class="form-control" name="host" placeholder="ex: imap.example.com"> -->
-                <label class="lab" for="exampleInputUserName">User Name</label>
-                
-                <div class="form-group has-feedback">
-            <input type="email" class="form-control" name="user" placeholder="yourname@example.com">
-            <span class="glyphicon glyphicon-user form-control-feedback glyph-color"></span>
-          </div>
-                
-                <!-- <input type="text" class="form-control" name="user" placeholder="yourname@example.com"> -->
-                </div>   <!-- adv-login ends -->
-                
-                <div class="form-group has-feedback">
-                <label class="lab" for="exampleInputPassword">Password</label>
-            <input type="password" class="form-control" name="pass" placeholder="*************" required>
-            <span class="glyphicon glyphicon-lock form-control-feedback glyph-color"></span>
-          </div>
-                
-                
-                <!-- <label for="exampleInputPassword">Password</label>
-                <input type="password" class="form-control" name="pass" placeholder="Password" required > -->
-                <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
-               <!--  <label class="checkbox pull-left">
-                    <input type="checkbox" value="remember-me">
-                    Remember me
-                </label> 
-                <a href="#" class="pull-right need-help">Need help? </a><span class="clearfix"></span>-->
-                </form>
-            </div>
+	<title>Login to Web Mail</title>
+<link rel=stylesheet type="text/css" href="skins/normal-default.css">
+<script language="javascript">
+<!--
+       function checkEmpty(){
+                //alert("dfgdfdfdf");
+		if (document.login.email.value == "" || !validateEmailAddress(document.login.email.value)){
+			alert('Please enter your E-mail Address.');
+			document.login.email.focus();
+			return false;				
+		} 		
+                <% if ( adv) { %>
+		if (document.login.host.value == ""){
+			alert("Please enter your mail Server.");
+			document.login.host.focus();
+			return false;				
+		}
+		if (document.login.user.value == ""){
+			alert("Please enter your mail user-ID.");
+			document.login.user.focus();
+			return false;				
+		}
+                <% } %>
+		if (document.login.pass.value == ""){
+			alert("Please enter your mail Password.");
+			document.login.pass.focus();
+			return false;				
+		}
+                document.login.submit.disabled = true;
+                document.login.submit.value = "...please wait";
+                return true;
+        }
+	/////////////////////////////////////////////////
+	// 	returns False if the email is not valid
+		// The rule of checking of email is as follows
+		// 1. No space should be present
+		// 2. Exactly one @ shold be present
+		// 3. At least one dot should be present
+		// 4. dot can not be preseant at the beg or end
 		
-		<a class="pull-left" id="adv" role="button" data-toggle="collapse" href="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</a>
-		<!-- <button class="btn btn-primary" id="adv" type="button" data-toggle="collapse" data-target="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</button> -->
-		<script type="text/javascript">
-		 $("#adv").click(function () {
-	         $(this).text(function(i, v){
-	            return v === 'Advanced Login' ? 'Go Back to Intelligent Login' : 'Advanced Login'
-	         })
-	     });
-		
-		
-		</script>
+	function validateEmailAddress (inEmail) {
+                return true ; // TEMP REMOVE LATER
+		var okEmail;
+		var locAt = inEmail.indexOf("@"); 
+		var emailsize=inEmail.length;
+		var locPeriod = inEmail.lastIndexOf(".");
+		var firstdot=inEmail.indexOf(".");
 	
-</div>
-<%-- <div style="color:red">${errorMessage}</div> --%>
+		if ( ( firstdot == -1) || (firstdot == locAt-1) || (firstdot == locAt+1) || (firstdot == 0)) {
+	 		return false;
+		}
+ 	
+	  	var prevdot = firstdot;
+		for (var i=(firstdot+1);i < (inEmail.length -1);i++) {
+			var curchar =inEmail.charAt(i);
+			if ( (curchar == ".") && (i == prevdot+1) ) {
+				return false;
+			}
+		
+			if ( curchar == "." ) {
+				prevdot = i;
+			}
+		}
+	
+		okEmail = ((locAt != -1) && (locAt != 0) && (locAt != (inEmail.length - 1)) &&
+    	         (inEmail.indexOf("@", (locAt + 1)) == -1) &&
+        	     ( (locPeriod == (inEmail.length - 3)) || 
+				 (locPeriod == (inEmail.length - 4))) && 
+	             (locPeriod > locAt) 
+		); 
 
+		return okEmail; 				
+	}
+//-->			
+</script>	
+</head>
+<body >
+<jsp:include page="banner.jsp" flush="true"/>
+<table align="center" width="100%" border="0"  cellspacing=0 cellpadding=0>
+<tr>
+<td height="50" colspan="2" >&nbsp;
+</td>
 
-</div>
-<!--  Error Show  -->
-<% if(request.getAttribute("errorMessage") != null)
-	{%>
-	<br><br>
-	<div class="col-sm-6 col-md-4 col-md-offset-4">
-	<div class="alert alert-danger alert-dismissible text-center" role="alert">
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-     <strong>Error :: </strong> ${errorMessage} <!-- JSP EL expression language  -->
-    </div></div>
-	<% }%>
-<!--  END Error Show  -->
+<tr> 
+<td align='left' width="10%">
+&nbsp;
+</td>
+<td valign=center>
+<h4 style="color:red">&nbsp;&nbsp;<%=msg%></h4>
+<!-- LOGIN TABLE -->
+<% if ( adv) { %>
+<h4>&nbsp;&raquo;&nbsp;Advanced Login:</h4>
+<% } else { %>
+<h4>&nbsp;&raquo;&nbsp;Intelligent Login:</h4>
+<% } %>
+<form name="login" action="login.jsp" method="post" onsubmit='return checkEmpty();' >
+<table align="left" border="1" cellpadding="4" cellspacing="4" bgcolor="#ffffff" width="40%" rules="rows" bordercolor=silver>
+ <tr>
+	<td valign="middle"   align="left" class="ask"><small><font color="#000000" face="Arial"><small><strong><span style="font-family: Verdana, Arial">E-Mail Address:</span></strong></small></font></small></td>
+ </tr>
+ <tr>
+ 		<td valign="middle" align="left" class="ask"><input name="email" value="<%=email%>" size="40"><font face="Arial"></td>
+</tr>
+<% if ( adv ) { %>
+ <tr>
+	<td valign="middle"   align="left" class="ask"><small><font color="#000000" face="Arial"><small><strong><span style="font-family: Verdana, Arial">Mail Server:</span></strong></small></font></small></td>
+ </tr>
+ <tr>
+ 		<td valign="middle" align="left" class="ask"><input name="host" value="<%=host%>" size="40"><font face="Arial"></td>
+</tr>
+ <tr>
+	<td valign="middle"   align="left" class="ask"><small><font color="#000000" face="Arial"><small><strong><span style="font-family: Verdana, Arial">Username:</span></strong></small></font></small></td>
+ </tr>
+ <tr>
+ 		<td valign="middle" align="left" class="ask"><input name="user" value="<%=user%>" size="40"><font face="Arial"></td>
+</tr>
+<% } %>
+<tr>
+		<td valign="middle"  align="left" class="ask"><strong><small><font color="#000000" face="Arial"><small><span style="font-family: Verdana, Arial">Password:</span></small></font></small></strong></td>
+</tr>
+<tr>
+		<td valign="middle"  align="left" class="ask"><input type="password" name="pass" value="<%=pass%>" size="40"></td>
+</tr>
+<tr>
+		<td valign="middle" class="submit-bg">
+		<input type="submit" align="right" class="sbmt"  name="submit" value=":: Login ::"></td>
+</tr>
+</table>
+<input type="hidden" name="ok" value="true">
+</form>
+<br clear=all><br>
+<% if ( adv) { %>
+Go Back to  <a href="login.jsp">Intelligent Login</a> 
+<% } else { %>
+If Intelligent Login Fails Try <a href="login.jsp?advMode=true">Advanced Login</a> 
+<% } %>
+<!--a href="trouble_logging.jsp">Trouble Logging-In?</a> | &nbsp;
+<a href="forgot_password.jsp">Forgot Password?</a-->
+</ul>
+<!-- END LOGIN TABLE -->
+</td>
+</tr>
 
-</div>
+<tr>
+<td height="50" colspan="2">&nbsp;
+</td>
 
-<div class="footer navbar-default">
-<jsp:include page="footer.jsp"></jsp:include></div>
-
-<script type="text/javascript" src="../WM-UI-Resources/bootstrap/js/bootstrap.min.js"></script>
+<tr>
+<td bgcolor="silver" height="250" colspan="2">&nbsp;&copy; Zaidsoft. All Rights Reserved.
+</td>
+</tr>
+</table>
 
 </body>
 </html>
