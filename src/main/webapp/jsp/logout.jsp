@@ -1,41 +1,49 @@
 <%@page contentType="text/html"%>
 <html>
-<head><title>Logged Out</title>
+<head>
 <%@ page import="com.zaidsoft.webmail.*" %>
 <%
      session.invalidate();
 %>
-<script>
-<!--
-function finish(){ 
-    window.close();
-}
-// -->
-</script>
-<link rel=stylesheet type="text/css" href="skins/normal-default.css">
+      
+    <title>WebMail :: Logout</title>
+    
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebMail :: Login</title>
+
+<link rel=stylesheet type="text/css" href="../UI-Resources/webmail-ui/css/login.css">
+<link rel=stylesheet type="text/css" href="../UI-Resources/webmail-ui/css/WebmailBST.css">
+<link rel=stylesheet type="text/css" href="../UI-Resources/bootstrap/css/bootstrap.min.css">
+<link rel=stylesheet type="text/css" href="../UI-Resources/bootstrap/css/bootstrap-theme.min.css">
+
+
+<script type="text/javascript" src="../UI-Resources/plugins/jQuery/jquery.min.js"></script>
+
 </head>
-<body>
-<table align="center" width="100%">
-<tr>
-<td bgcolor="silver" height="100px" align=right><h4>&nbsp;&nbsp;&nbsp;&nbsp;</h4>
-</td>
-</tr>
-<tr>
-<td>
-<div style="text-align: center">
-<br><br><br>
-<h3> You have successfully logged out. </h3>
-<br><br><br>
-If you wish, you may login again by going to <a target=_self href="../index.jsp">Login Page</a>
+  <body class="hold-transition default-skin sidebar-mini">
+    <div class="container">
+
+		
+		<div class="jumbotron">
+        <h1>WebMail</h1>
+        <p class="lead">You have successfully logged out.</p>
+        <p><a class="btn btn-lg btn-success" href="../index.jsp" role="button">Log in again</a></p>
+      </div>
+      
+    </div><!-- ./wrapper -->
+    <div class="footer navbar-default">
+<jsp:include page="footer.jsp"></jsp:include>
 </div>
-<br><br><br><br>
-<br><br><br><br><br>
-</td>
-</tr>
-<tr>
-<td bgcolor="silver" height="300">&nbsp;&copy;Zaidsoft. All Rights Reserved.
-</td>
-</tr>
-</table>
-</body>
+    
+
+    <!-- jQuery -->
+     <script src="plugins/jQuery/jQuery-2.1.4.min.js"></script> 
+    <!-- Bootstrap -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+
+
+  </body>
 </html>
+
