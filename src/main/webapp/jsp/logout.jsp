@@ -26,7 +26,7 @@ function finish(){
 <br><br><br>
 <h3> You have successfully logged out. </h3>
 <br><br><br>
-If you wish, you may login again by going to <a target=_self href="login.jsp">Login Page</a>
+If you wish, you may login again by going to <a target=_self href="../index.jsp">Login Page</a>
 </div>
 <br><br><br><br>
 <br><br><br><br><br>

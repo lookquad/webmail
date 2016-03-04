@@ -99,6 +99,7 @@
 </div>
 
 <div class="footer navbar-default">
+<jsp:include page="jsp/footer.jsp"></jsp:include>
 </div>
 
 <script type="text/javascript">
