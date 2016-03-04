@@ -1269,4 +1269,12 @@ li.compose-button .btn{
     border-color: #ddd;
     color: #595959;
 } 
+
+.jumbotron{
+	margin-top: 150px;
+	width: 100%;
+	text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+	
+}
 	
