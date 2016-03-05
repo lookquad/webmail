@@ -9,16 +9,23 @@
 <link rel=stylesheet type="text/css" href="UI-Resources/bootstrap/css/bootstrap.min.css">
 <link rel=stylesheet type="text/css" href="UI-Resources/bootstrap/css/bootstrap-theme.min.css">
 
+<link rel=stylesheet type="text/css" href="UI-Resources/webmail-ui/css/Loader.css">
+
 
 <script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.min.js"></script>
 <script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.validate.min.js"></script>
+
+
+
 </head>
 
 
 <body>
-
+	<!-- Showing the loader icon -->
+	<div class="show-loader"><label> loading .... </label></div>
 <div class="container">
     <div class="row complete-page">
+    
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <h1 class="text-center ">WebMail</h1>
             <h4 class="text-center login-title">Sign in to continue to WebMail</h4>
@@ -64,7 +71,11 @@
                 
                 <!-- <label for="exampleInputPassword">Password</label>
                 <input type="password" class="form-control" name="pass" placeholder="Password" required > -->
-                <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
+              
+              
+                <button class="somebutton btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
+              
+              
                <!--  <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
                     Remember me
@@ -76,7 +87,7 @@
 		<a class="pull-left" id="adv" role="button" data-toggle="collapse" href="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</a>
 		<!-- <button class="btn btn-primary" id="adv" type="button" data-toggle="collapse" data-target="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</button> -->
 		
-		
+	<!-- 	<img id="loader" src="UI-Resources/webmail-ui/img/profile.png" style="display: none;" /> -->
 		
 	
 </div>
@@ -111,6 +122,19 @@
 		
 		
 		</script>
+		<script>
+		$(document).ready(function(){
+			$('.show-loader').hide();
+			$( "form" ).submit(function() {
+				$('.container').hide();
+				$('.show-loader').show();
+	
+			})
+		});
+</script>
+		
+		
+
 
 <script type="text/javascript" src="UI-Resources/bootstrap/js/bootstrap.min.js"></script>
 

@@ -1,6 +1,7 @@
 package com.zaidsoft.services;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Hashtable;
 
 import javax.mail.MessagingException;
@@ -14,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpServletResponseWrapper;
 import javax.servlet.http.HttpSession;
 
 import com.zaidsoft.webmail.POP3MailBean;
@@ -35,6 +37,7 @@ public class WM_Authenticate_User extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
+    
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -48,7 +51,6 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	    String[] users = new String[nTry];
 	    String mx=null;
 	    
-		
 		try{
 		HttpSession ses = request.getSession(true);
 	     POP3MailBean b = new POP3MailBean();
@@ -175,5 +177,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        String s = a.get(0).toString();
 	        return s.split(" ")[1].trim();
 	    }
+	 
+
 
 }
