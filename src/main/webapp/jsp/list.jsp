@@ -1,12 +1,14 @@
-<%@page import="java.util.List"%>
 <%@page import="com.zaidsoft.webmail.IMAPBean.ListRow"%>
+<%@page import="java.util.List"%>
+<%-- <%@page import="com.zaidsoft.webmail.IMAPBean.ListRow"%> --%>
 <%@page contentType="text/html"%>
-<%@page import="com.zaidsoft.webmail.*" %>
+<%-- <%@page import="com.zaidsoft.webmail.*" %> --%>
 <%@page import="javax.mail.internet.*" %>
 <%@ include file="checkLogin.jsp"%>
 
 <jsp:useBean id="b" scope="session" class="com.zaidsoft.webmail.IMAPBean" />
 <% 
+	
     String folder = request.getParameter("folder");
     if ( folder != null )
     b.setFolder(folder);
@@ -38,7 +40,7 @@ function checkDel(target){
 <body>
 
 <%----------- Include the Header --------------%>
-<jsp:include page="header.jsp?depth=../" flush="true"/> 
+<jsp:include page="header.jsp" flush="true"/>  
 <jsp:include page="sidebar.jsp" flush="true"/>
 <br>
 <table cellspacing="2" cellpadding="0" border="0" rules="rows" width='92%'>
@@ -66,11 +68,11 @@ function checkDel(target){
     <td align="center" class="caption"> Size </td>
 </tr>
 <form name="performer" method="post">
+ <p><%= p %></p> 
 <%
-
- List<ListRow> mrows = b.buildPageSummary(p);
- for (int i = mrows.size() -1; i >= 0; i--){ 
-    ListRow m = mrows.get(i);
+ List<ListRow> mrows = b.buildPageSummary(p);%> <p><%=mrows.size() %></p>
+<% for (int i = mrows.size() -1; i >= 1; i--){ 
+	 ListRow m = mrows.get(i);
 %>
 <tr bgcolor="#ffffcc">
     <td class="ask"><INPUT class = "on-ask" name="<%=i%>" type="checkbox"></td>
@@ -89,6 +91,6 @@ function checkDel(target){
 </tr>
 </table>
 <%----------- Include the Footer --------------%>
-<jsp:include page="footer.jsp?depth=../" flush="true"/>
+<jsp:include page="footer.jsp" flush="true"/>
 </body>
 </html>

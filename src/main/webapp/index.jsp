@@ -15,8 +15,6 @@
 <script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.min.js"></script>
 <script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.validate.min.js"></script>
 
-
-
 </head>
 
 
@@ -113,6 +111,7 @@
 <jsp:include page="jsp/footer.jsp"></jsp:include>
 </div>
 
+
 <script type="text/javascript">
 		 $("#adv").click(function () {
 	         $(this).text(function(i, v){
@@ -123,6 +122,7 @@
 		
 		</script>
 		<script>
+		$('.show-loader').hide();
 		$(document).ready(function(){
 			$('.show-loader').hide();
 			$( "form" ).submit(function() {
@@ -131,8 +131,17 @@
 	
 			})
 		});
-</script>
 		
+		/* $(window).bind("pageshow", function() {
+			  // update hidden input field
+			$('.show-loader').hide();
+			 
+			}); */
+			
+			
+		
+</script>
+
 		
 
 

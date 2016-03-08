@@ -249,13 +249,37 @@ public class IMAPBean implements java.io.Serializable, JspTreeInfo {
     }
 
     public List<ListRow> buildPageSummary(int page) throws MessagingException {
+    	 System.out.println("No page is ======================== "+page);
         int count = folder.getMessageCount();
-        int max = 20;
+        System.out.println("No of total msgs is ======================== "+count);
+        int max = 5;
+        int local_count = count-(page * max -max);
         max = count < max ? count : max;
-        int start = count - (page) * max;
-        int end = start + max;
+        System.out.println("No of max is ======================== "+max);
+       // int start = (count - (page) * max)+1;
+        int start = page ;
+        if(page==1)
+        	start=page;
+        else start=(page*max -max)+1;
+        System.out.println("No of start is ======================== "+start);
+        //int end = start + max-1;
+        int end =max;
+        if (page==1 && count<=max)
+        	end = max;
+        else 
+        {
+        	if(local_count>max)
+        		end = start + max;
+        	else
+        		end = local_count-start;
+        }
+        	//end = start + local_count - max;
+        
+        System.out.println("No of end is ======================== "+end);
         List<ListRow> rows = new ArrayList<ListRow>();
+        System.out.println("No of rows is ======================== "+rows);
         Message[] messages = folder.getMessages(start, end);
+        System.out.println("messages ======================== "+messages);
         FetchProfile fp = new FetchProfile();
         fp.add(FetchProfile.Item.ENVELOPE);
         fp.add("Subject");
