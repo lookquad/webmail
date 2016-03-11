@@ -24,14 +24,14 @@ import com.zaidsoft.webmail.SMTPBean;
  * Servlet implementation class WM_Authenticate_User
  */
 
-public class WM_Authenticate_User extends HttpServlet {
+public class WMAuthenticateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String errMsg = null;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public WM_Authenticate_User() {
+    public WMAuthenticateUser() {
         super();
         // TODO Auto-generated constructor stub
     }
