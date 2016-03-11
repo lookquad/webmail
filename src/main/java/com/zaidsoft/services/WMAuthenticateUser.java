@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.zaidsoft.webmail.IMAPBean;
 import com.zaidsoft.webmail.POP3MailBean;
 import com.zaidsoft.webmail.ResourceProvider;
 import com.zaidsoft.webmail.SMTPBean;
@@ -51,7 +52,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 		
 		try{
 		HttpSession ses = request.getSession(true);
-	     POP3MailBean b = new POP3MailBean();
+	     IMAPBean b = new IMAPBean();	// changed pop3 to imap bean to fix the bug:  com.zaidsoft.webmail.IMAPBean cannot be cast to com.zaidsoft.webmail.POP3MailBean in list.jsp
 	     SMTPBean s = new SMTPBean();
 	     
 	     String email = request.getParameter("email");
