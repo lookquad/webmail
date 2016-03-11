@@ -140,7 +140,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        
 	    	if(flag == "success")
 	    	{
-	    		response.sendRedirect("jsp/view_mail_list.jsp");
+	    		response.sendRedirect("jsp/list.jsp");
 	    	}else if(flag == "auth-fail")
 	    	{
 	    		 request.setAttribute("errorMessage", errMsg);
