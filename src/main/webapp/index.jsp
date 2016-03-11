@@ -24,7 +24,7 @@
             <h4 class="text-center login-title">Sign in to continue to WebMail</h4>
             <div class="account-wall">
                 <!-- <img class="profile-img" src="" alt=""> -->
-                 <form class="form-signin" action="WM_Authenticate_User" method = "POST">
+                 <form class="form-signin" action="WMAuthenticateUser" method = "POST">
                  
     			<label class="lab" for="exampleInputEmail">Email address</label>
     			

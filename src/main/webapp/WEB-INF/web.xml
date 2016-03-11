@@ -10,7 +10,7 @@
     <url-pattern>/attachview</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description>View mail attachement in browser</description>
+    <description>Authenticate user login</description>
     <servlet-name>WMAuthenticateUser</servlet-name>
     <servlet-class>com.zaidsoft.services.WMAuthenticateUser</servlet-class>
   </servlet>
