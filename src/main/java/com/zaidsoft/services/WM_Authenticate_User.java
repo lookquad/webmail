@@ -1,7 +1,6 @@
 package com.zaidsoft.services;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Hashtable;
 
 import javax.mail.MessagingException;
@@ -15,10 +14,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpServletResponseWrapper;
 import javax.servlet.http.HttpSession;
 
-import com.zaidsoft.webmail.IMAPBean;
 import com.zaidsoft.webmail.POP3MailBean;
 import com.zaidsoft.webmail.ResourceProvider;
 import com.zaidsoft.webmail.SMTPBean;
@@ -38,7 +35,6 @@ public class WM_Authenticate_User extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -52,9 +48,10 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	    String[] users = new String[nTry];
 	    String mx=null;
 	    
+		
 		try{
 		HttpSession ses = request.getSession(true);
-	     IMAPBean b = new IMAPBean();				// changed pop3 to imap bean to fix the bug:  com.zaidsoft.webmail.IMAPBean cannot be cast to com.zaidsoft.webmail.POP3MailBean in list.jsp
+	     POP3MailBean b = new POP3MailBean();
 	     SMTPBean s = new SMTPBean();
 	     
 	     String email = request.getParameter("email");
@@ -143,7 +140,7 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        
 	    	if(flag == "success")
 	    	{
-	    		response.sendRedirect("jsp/list.jsp");
+	    		response.sendRedirect("jsp/view_mail_list.jsp");
 	    	}else if(flag == "auth-fail")
 	    	{
 	    		 request.setAttribute("errorMessage", errMsg);
@@ -178,7 +175,5 @@ protected void doPost(HttpServletRequest request, HttpServletResponse response) 
 	        String s = a.get(0).toString();
 	        return s.split(" ")[1].trim();
 	    }
-	 
-
 
 }

@@ -5,25 +5,20 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>WebMail :: Login</title>
 
-<link rel=stylesheet type="text/css" href="UI-Resources/webmail-ui/css/login.css">
-<link rel=stylesheet type="text/css" href="UI-Resources/bootstrap/css/bootstrap.min.css">
-<link rel=stylesheet type="text/css" href="UI-Resources/bootstrap/css/bootstrap-theme.min.css">
-
-<link rel=stylesheet type="text/css" href="UI-Resources/webmail-ui/css/Loader.css">
+<link rel=stylesheet type="text/css" href="jsp/ui-resources/css/login.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
 
 
-<script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.min.js"></script>
-<script type="text/javascript" src="UI-Resources/plugins/jQuery/jquery.validate.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.15.0/jquery.validate.js"></script>
 </head>
 
 
 <body>
-	<!-- Showing the loader icon -->
-	<div class="show-loader"><label> loading .... </label></div>
+
 <div class="container">
     <div class="row complete-page">
-    
         <div class="col-sm-6 col-md-4 col-md-offset-4">
             <h1 class="text-center ">WebMail</h1>
             <h4 class="text-center login-title">Sign in to continue to WebMail</h4>
@@ -69,11 +64,7 @@
                 
                 <!-- <label for="exampleInputPassword">Password</label>
                 <input type="password" class="form-control" name="pass" placeholder="Password" required > -->
-              
-              
-                <button class="somebutton btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
-              
-              
+                <button class="btn btn-lg btn-primary btn-block" type="submit"> Sign in</button>
                <!--  <label class="checkbox pull-left">
                     <input type="checkbox" value="remember-me">
                     Remember me
@@ -85,7 +76,7 @@
 		<a class="pull-left" id="adv" role="button" data-toggle="collapse" href="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</a>
 		<!-- <button class="btn btn-primary" id="adv" type="button" data-toggle="collapse" data-target="#adv-login" aria-expanded="false" aria-controls="collapseExample">Advanced Login</button> -->
 		
-	<!-- 	<img id="loader" src="UI-Resources/webmail-ui/img/profile.png" style="display: none;" /> -->
+		
 		
 	
 </div>
@@ -111,7 +102,6 @@
 <jsp:include page="jsp/footer.jsp"></jsp:include>
 </div>
 
-
 <script type="text/javascript">
 		 $("#adv").click(function () {
 	         $(this).text(function(i, v){
@@ -121,31 +111,8 @@
 		
 		
 		</script>
-		<script>
-		$('.show-loader').hide();
-		$(document).ready(function(){
-			$('.show-loader').hide();
-			$( "form" ).submit(function() {
-				$('.container').hide();
-				$('.show-loader').show();
-	
-			})
-		});
-		
-		/* $(window).bind("pageshow", function() {
-			  // update hidden input field
-			$('.show-loader').hide();
-			 
-			}); */
-			
-			
-		
-</script>
 
-		
-
-
-<script type="text/javascript" src="UI-Resources/bootstrap/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 </body>
 </html>
