@@ -1,4 +1,4 @@
-package com.zaidsoft.webmail;
+package com.zaidsoft.services;
 
 import java.io.IOException;
 import java.util.Hashtable;
@@ -16,16 +16,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.zaidsoft.webmail.*;
+import com.zaidsoft.webmail.IMAPBean;
+import com.zaidsoft.webmail.POP3MailBean;
+import com.zaidsoft.webmail.ResourceProvider;
+import com.zaidsoft.webmail.SMTPBean;
 
 /**
- * Servlet implementation class Authenticator
+ * Servlet implementation class WM_Authenticate_User
  */
-public class WM_Authenticator extends HttpServlet {
+
+public class WMAuthenticateUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	String errMsg = null;
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public WMAuthenticateUser() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException  {
 		
 		String login_mode;
 		String flag =null;
@@ -37,7 +52,7 @@ public class WM_Authenticator extends HttpServlet {
 		
 		try{
 		HttpSession ses = request.getSession(true);
-	     POP3MailBean b = new POP3MailBean();
+	     IMAPBean b = new IMAPBean();	// changed pop3 to imap bean to fix the bug:  com.zaidsoft.webmail.IMAPBean cannot be cast to com.zaidsoft.webmail.POP3MailBean in list.jsp
 	     SMTPBean s = new SMTPBean();
 	     
 	     String email = request.getParameter("email");
@@ -126,22 +141,22 @@ public class WM_Authenticator extends HttpServlet {
 	        
 	    	if(flag == "success")
 	    	{
-	    		response.sendRedirect("view_mail_list.jsp");
+	    		response.sendRedirect("jsp/list.jsp");
 	    	}else if(flag == "auth-fail")
 	    	{
 	    		 request.setAttribute("errorMessage", errMsg);
-	    		 RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+	    		 RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 	    		 rd.forward(request,response);
 	    		 
 	    	}else if(flag == "connection-error")
 	    	{
 	    		 request.setAttribute("errorMessage", errMsg);
-	    		 RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+	    		 RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 	    		 rd.forward(request,response);
 	    	}else
 	    	{
 	    		request.setAttribute("errorMessage", "Some Problem occered");
-	    		RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+	    		RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
 	    		 rd.forward(request,response);
 	    	}
 		

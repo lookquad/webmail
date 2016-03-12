@@ -9,17 +9,15 @@
     <servlet-name>attachview</servlet-name>
     <url-pattern>/attachview</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-    <description>View mail attachement in browser</description>
-    <servlet-name>WM_Authenticate_User</servlet-name>
-    <servlet-class>com.zaidsoft.services.WM_Authenticate_User</servlet-class>
+    <description>Authenticate user login</description>
+    <servlet-name>WMAuthenticateUser</servlet-name>
+    <servlet-class>com.zaidsoft.services.WMAuthenticateUser</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>WM_Authenticate_User</servlet-name>
-    <url-pattern>/WM_Authenticate_User</url-pattern>
+    <servlet-name>WMAuthenticateUser</servlet-name>
+    <url-pattern>/WMAuthenticateUser</url-pattern>
   </servlet-mapping>
-  
   <session-config>
     <session-timeout>30</session-timeout>
   </session-config>
