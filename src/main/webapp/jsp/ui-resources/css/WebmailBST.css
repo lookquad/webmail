@@ -1277,4 +1277,24 @@ li.compose-button .btn{
   border-bottom: 1px solid #e5e5e5;
 	
 }
+
+	/* ==============  Loader ring  =========== */
+		
+.show-loader{
+	 background: url("../img/ring.gif") no-repeat center center;
+	 width:100%;
+	 height:100%;
+	 margin-top: 150px;
+	 text-align: center;
+}
+
+.show-loader > label{
+	 
+	 width:100%;
+	 height:100%;
+	 margin-top: 150px;
+	 text-align: center;
+}
+
+
 	
