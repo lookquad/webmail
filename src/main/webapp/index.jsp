@@ -16,7 +16,8 @@
 
 
 <body>
-
+<!-- Showing the loader icon -->
+	<div class="show-loader"><label> loading .... </label></div>
 <div class="container">
     <div class="row complete-page">
         <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -111,6 +112,18 @@
 		
 		
 		</script>
+				
+		
+		<script>
+		$(document).ready(function(){
+			$('.show-loader').hide();
+			$( "form" ).submit(function() {
+				$('.container').hide();
+				$('.show-loader').show();
+	
+			})
+		});
+</script>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
