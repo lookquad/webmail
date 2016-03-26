@@ -375,17 +375,7 @@
      
   <script type="text/javascript" src="ui-resources/scroll-bar/js/jquery.nanoscroller.js"></script>
   <script type="text/javascript" src="ui-resources/scroll-bar/js/main.js"></script>
-  
 
-    
-    <!-- this function is used to make the menu from sidebar active/selected untill any other menu is selected on the page -->
-   <script>
-   
-   
-   </script>
-   
-   
-   
    <script>
    $('li.hello').click(function() {
 	    $('li.hello').removeClass('activate-menu');
@@ -395,34 +385,33 @@
    </script> 
    
    <script>			/* this script is used to toggle compose button and mini-side-bar compose icon */
-   $(document).ready(function(){
-    $('.c-button').hide();
-    $('.sidebar-toggle').click(function(){
-        $('.c-button').toggle();
-        $('.comp-button').toggle();
-        $('.nano').toggle();
-        $('.mc').toggle();
-        
-    });        
-});
+   	$(document).ready(function(){
+    	$('.c-button').hide();
+    	$('.sidebar-toggle').click(function(){
+       		$('.c-button').toggle();
+        	$('.comp-button').toggle();
+        	$('.nano').toggle();
+        	$('.mc').toggle();
+    	});        
+	});
    </script>
    
    <script type="text/javascript">
-$(document).ready(function(){
-$('.demo').initial({
-name: 'Name', // Name of the user
-charCount: 1, // Number of characherts to be shown in the picture.
-textColor: '#ffffff', // Color of the text
-seed: 0, // randomize background color
-height: 100,
-width: 100,
-fontSize: 60,
-fontWeight: 400,
-fontFamily: 'HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif',
-radius: 0
-});
-})
-</script>
+	$(document).ready(function(){
+		$('.demo').initial({
+		name: 'Name', // Name of the user
+		charCount: 1, // Number of characherts to be shown in the picture.
+		textColor: '#ffffff', // Color of the text
+		seed: 0, // randomize background color
+		height: 100,
+		width: 100,
+		fontSize: 60,
+		fontWeight: 400,
+		fontFamily: 'HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif',
+		radius: 0
+		})
+	});
+	</script>
 
   </body>
 </html>
