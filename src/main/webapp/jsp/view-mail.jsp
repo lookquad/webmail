@@ -1,13 +1,14 @@
-<%@page import="java.util.List"%>
-<%@page import="com.zaidsoft.webmail.IMAPBean.ListRow"%>
 <%@page contentType="text/html"%>
 <%@page import="com.zaidsoft.webmail.*" %>
-<%@page import="javax.mail.internet.*" %>
+<%@ page import="javax.activation.*" %>
+<%@ page import="javax.mail.*" %>
+<%@ page import="javax.mail.internet.*"%>
+<%@ page import="javax.activation.*" %>
 <%@ include file="checkLogin.jsp"%>
 
 <jsp:useBean id="b" scope="session" class="com.zaidsoft.webmail.IMAPBean" />
-<% 
-    String folder = request.getParameter("folder");
+<%  
+    /* String folder = request.getParameter("folder");
     if ( folder != null )
     b.setFolder(folder);
     else folder = b.getFolderName();
@@ -15,17 +16,44 @@
     session.setAttribute("jspTreeImpl", b);
     
     
- String s = request.getParameter("page");
- if (s == null) s = "1";
- int p = Integer.parseInt(s);  
- String uname= b.getUsername();
- int unreadMsg = b.getTotalUnreadMessages("INBOX");
+ 	String s = request.getParameter("page");
+ 	if (s == null) s = "1";
+ 	int p = Integer.parseInt(s);   */
+ 	
+ 	
+ 	long st = System.currentTimeMillis();
+   //String folder = request.getParameter("folder");
+
+    // if message number is given find the message id 
+    String msgNo = request.getParameter("msgNo");
+    String msgID = request.getParameter("msgID");
+
+    // this is the message we are talking about
+    MimeMessage msg = null;
+
+    if ( msgNo != null ){
+        msg =  b.getMessage(Integer.parseInt(msgNo));
+    } 
+    else {
+        msg =  b.getMessage(msgID);
+    }
+
+    int index = msg.getMessageNumber();
+    msgID = b.getMessageID(msg);
+    MimeMessageHandler msgHandler = (MimeMessageHandler) session.getAttribute("msgHandler" + msgID);
+    if ( msgHandler == null ) {
+        msgHandler = new MimeMessageHandler((MimeMessage)msg); 
+        session.setAttribute("msgHandler"+msgID, msgHandler);
+    }
+    String uname= b.getUsername();
+ 	int unreadMsg = b.getTotalUnreadMessages("INBOX");
+ 	
 %>
 
 <!DOCTYPE html>
 <html>
   <head>
-    <title>WebMail :: Inbox</title>
+    <title>WebMail :: ViewMail</title>
     
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     
@@ -190,30 +218,30 @@
      			<div class="col-md-12">
      			<div class="content">
      			<div class="page-info">
-     			<h3>Inbox</h3> &nbsp;&nbsp;&nbsp; <small> You have <%=b.getMessageCount()%> messages</small>
+     			<h3><%=msgHandler.getSubject()%></h3>
      			
      			
      			
      			<div class="pull-right">
-                      1-20/<%=b.getMessageCount()%>
+                      <%-- 1-20/<%=b.getMessageCount()%>
                       <div class="btn-group">
                         <button class="btn btn-default btn-sm"  <%= ( p <= 1 ) ? "disabled=\"true\"" : "" %> onClick="document.location.href='list.jsp?folder=<%=folder%>&page=<%=p-1%>'"><i class="fa fa-chevron-left"></i></button>
                         <button class="btn btn-default btn-sm"  <%= ( p == b.getMessageCount()) ? "disabled=\"true\"" : "" %> onClick="document.location.href='list.jsp?folder=<%=folder%>&page=<%=p+1%>'"> <i class="fa fa-chevron-right"></i></button>
-                      </div>
+                      </div> --%>
                     </div>
      			
      			</div>
-     			<div class ="alert-on-select">
+     			<!-- <div class ="alert-on-select">
 	     			<div class="alert alert-danger alert-dabba" role="alert"> 
 	     				All <b>20 conversations</b> on this page are selected 
 	     			</div>
-     			</div>
+     			</div> -->
      			<div class="controll-buttons">
-     				<input type="checkbox" class="select-all" value="" data-toggle="tooltip" data-placement="bottom" title="Select All">
+     				<!-- <input type="checkbox" class="select-all" value="" data-toggle="tooltip" data-placement="bottom" title="Select All"> -->
      				
-     				<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Refresh">
+     				<!-- <button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Refresh">
   					<i class="fa fa-refresh"></i>
-					</button>
+					</button> -->
 					
 					<div class="controll-btn-group">
 						<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Delete">
@@ -242,7 +270,7 @@
      				
      			
      			</div>   	<!-- control button ends -->	
-  <div class="email-table">          
+  <%-- <div class="email-table">          
   <table class="table">
     <tbody>
     <%
@@ -257,15 +285,12 @@
     				seen = "seen";
     			else 
     				seen = "unseen";
-    			System.out.println("Message id is  "+m.getMessageID());
-    			String mid= m.getMessageID();
     
 	%>
-    <tr class="<%=seen%> <%=mid%>"  >
+    <tr class="<%=seen%>" href="show.jsp?folder=<%=folder%>&msgID=<%=m.getMessageID()%>" >
         <td><input type="checkbox" value="" name="<%=i%>"></td>
         <td> <%=m.getFrom()%> </td>
-        <td><a class="kwala" href="show.jsp?folder=<%=folder%>&msgID=<%=mid%>">
-        &nbsp;<%=m.getSubject()%></a></td>
+        <td><b><%=m.getSubject()%></b>    </td>
         <td><i class="<%=paperClip%>"></i></td>
         <td><%=m.getDate() %></td>
     </tr>
@@ -273,7 +298,7 @@
       
     </tbody>
   </table>
-  </div>
+  </div> --%>
      			
      		</div>    <!-- content ends -->
     	</div>    <!--col-md-12  ends  -->

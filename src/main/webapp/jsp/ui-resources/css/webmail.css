@@ -1208,6 +1208,15 @@ li.compose-button .btn{
 .table > tbody > tr.active:hover > th {
   background-color:transparent;
 }
+.table > tbody > tr > td > a {
+	color: black;
+	font-weight: bold;
+}
+.table > tbody > tr.seen > td > a {
+	text-decoration: none;
+	font-weight:normal;
+	
+}
 
 
 

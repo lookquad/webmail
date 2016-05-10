@@ -326,11 +326,23 @@ function manage_object() {
 			function(){
 				$(this).removeClass('active');
 			});
-			$("tbody tr td:not(:first-child)").click(function(){
+			/*$("tbody tr td:not(:first-child)").click(function(){
 				document.location = $('tbody tr').attr('href'); 
-			});
+			});*/
 		});	
+		/*following function is used to open the view mail page to show the clicked message*/
+		
+		
 	});	
+	
+	$(document).ready(function(){
+		$("tbody tr td:not(:first-child)").click(function(){
+			var x = $(this).find("a").attr('href'); 
+			document.location = $(this).find("a").attr('href'); 
+			alert(x);
+		})
+	});
+	
 	
 	
 	

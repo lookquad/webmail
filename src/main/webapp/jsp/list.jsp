@@ -26,8 +26,9 @@
 <body>
 
 <%----------- Include the Header --------------%>
-<jsp:include page="header.jsp?depth=../" flush="true"/> 
-<jsp:include page="sidebar.jsp" flush="true"/>
+ <jsp:include page="header.jsp?depth=../" flush="true"/> 
+ 
+<%--<jsp:include page="sidebar.jsp" flush="true"/> --%>
 <br>
 <table cellspacing="2" cellpadding="0" border="0" rules="rows" width='92%'>
 <tr>

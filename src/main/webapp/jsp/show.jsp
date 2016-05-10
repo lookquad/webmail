@@ -50,7 +50,7 @@ function checkDel(target){
 <%----------- Include the Header --------------%>
 <jsp:include page="header.jsp?depth=../" flush="true"/> 
 
-<jsp:include page="sidebar.jsp" flush="true"/>
+<%-- <jsp:include page="sidebar.jsp" flush="true"/> --%>
 <br>
 <table width="80%" height="50%" cellspacing="1" cellpadding="1" border="0">
 <tr>

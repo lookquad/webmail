@@ -460,9 +460,17 @@ public class IMAPBean implements java.io.Serializable, JspTreeInfo {
     
     // this method should be called when there is a need to know the total unread messages count
     
-    public int getTotalUnreadMessages(){
+    public int getTotalUnreadMessages(String fname){
     	int x =0;
-    	try {
+    	try { 
+    	//Folder fin = folder;
+    	folder = defaultFolder.getFolder(fname);
+        if (!folder.exists()) {
+            throw new MessagingException("Folder doesn't exists.");
+        }
+        if (!folder.isOpen()) {
+            folder.open(Folder.READ_WRITE);
+        }
 			 x = folder.getUnreadMessageCount();
 		} catch (MessagingException e) {
 			// TODO Auto-generated catch block
