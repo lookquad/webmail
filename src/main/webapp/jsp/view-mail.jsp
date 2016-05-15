@@ -27,6 +27,7 @@
     // if message number is given find the message id 
     String msgNo = request.getParameter("msgNo");
     String msgID = request.getParameter("msgID");
+    String fname = request.getParameter("folder");
 
     // this is the message we are talking about
     MimeMessage msg = null;
@@ -223,10 +224,11 @@
      			
      			
      			<div class="pull-right">
-                      <%-- 1-20/<%=b.getMessageCount()%>
+                      <%--  1-20/<%=b.getMessageCount()%> --%>
+                      
                       <div class="btn-group">
-                        <button class="btn btn-default btn-sm"  <%= ( p <= 1 ) ? "disabled=\"true\"" : "" %> onClick="document.location.href='list.jsp?folder=<%=folder%>&page=<%=p-1%>'"><i class="fa fa-chevron-left"></i></button>
-                        <button class="btn btn-default btn-sm"  <%= ( p == b.getMessageCount()) ? "disabled=\"true\"" : "" %> onClick="document.location.href='list.jsp?folder=<%=folder%>&page=<%=p+1%>'"> <i class="fa fa-chevron-right"></i></button>
+                      <p><i class="fa fa-angle-double-left" aria-hidden="true"></i> &nbsp; <%=fname %></p>
+                      <%--  <button class="btn btn-default btn-sm"  <%= ( p == b.getMessageCount()) ? "disabled=\"true\"" : "" %> onClick="document.location.href='list.jsp?folder=<%=folder%>&page=<%=p+1%>'"> <i class="fa fa-chevron-right"></i></button>
                       </div> --%>
                     </div>
      			
