@@ -1269,46 +1269,96 @@ li.compose-button .btn{
 }
 	/*  //  controll bottons for inbox  ends  */
 	
+	
+	
 	/* controll bottons for View-Mail */
+
 
 .controll-buttons-vm{
 	
-	height: 40px;
-	line-height:38px;
+	height: 43px;
 	
 	text-align: center;
-	
-	border-bottom: 1px solid #f1f1f1;
+	line-height: 40px;
+	border-bottom: 1px solid #c1d5dd;
 	-moz-box-shadow: 0 0 30px 5px #999;
 -webkit-box-shadow: 0 0 30px 5px #999;
 
 }
 
-/* .controll-buttons-vm > .btn-group > .con-but-vm{
+.controll-buttons-vm > .select-all-vm{
+	
+	
+	margin-left: 8px;
+	vertical-align: middle;
+}
+.controll-buttons-vm > .con-but-vm{
+	margin-left: 20px;
+	background-color: #eeeeec;
+	vertical-align: middle;
+	width: 60px;
+}
+
+
+.controll-btn-group-vm{
+	display: inline;
+	margin-left: 30px;
+}
+.controll-buttons-vm > .controll-btn-group-vm > .con-but-vm{
+	background-color: #eeeeec;
+	vertical-align: middle;
+	width: 60px;
+}
+.controll-btn-group-single-select-vm{
+	display: inline;
+	margin-left: 30px;
+}
+
+.controll-buttons-vm > .controll-btn-group-single-select-vm > .con-but-vm{
+	background-color: #eeeeec;
+	vertical-align: middle;
+	width: 60px;
+}
+
+
+/* =============== control button vm ends ====================== */
+
+/* =============== from and to details in vm ====================== */
+
+.row.no-pad {
+/*   margin-right:0; */
+  margin-left:0;
+}
+.row.no-pad > [class*='col-'] {
+  padding-right:0;
+  padding-left:0;
+}
+@media (min-width: 991px) {
+  .col-md-1 {
+    width: 5%;
+}
+}
+
+.from-to-view-mail{
+	 border-bottom: 1px solid #c1d5dd;
 	 color: #444;
-	
-	 font-size: 12px;
-	 padding: 5px 10px;
-}*/
-.btn-group-sm > .btn, .btn-sm {
-    border-radius: 3px;
-    font-size: 12px;
-    line-height: 1.5;
-    padding: 5px 10px;
-    width: 50px;
+    display: block;
+    padding: 10px;
+    position: relative;
 }
-.controll-buttons-vm > .pull-left{
-	margin-left: 10px;
-	margin-top: 5px;
+
+.from-to-view-mail > h3 {
+	display: inline-block;
+    font-size: 18px;
+    line-height: 1;
+    margin: 0;
 }
-.controll-buttons-vm > .btn-group{
-	
+.from-to-view-mail > .border-me{
+	border: 1px solid black;
+	padding: 5px;
+	color:activeborder;
 }
-.controll-buttons-vm > .btn-group >.pull-right{
-	margin-right: 10px;
-	margin-top: 5px;
-	width: auto;
-}
+/* =============== ./ from and to details in vm ends ====================== */
 
 .btn-default {
     background-color: #f4f4f4;

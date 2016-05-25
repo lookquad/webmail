@@ -236,71 +236,105 @@
      			<!-- <div class ="alert-on-select">
 	     			<div class="alert alert-danger alert-dabba" role="alert"> 
 	     				All <b>20 conversations</b> on this page are selected 
-	     			</div>
-     			</div> -->
-     			<div class="controll-buttons">
+	     			</div>-->
+     			</div> 
+     			<div class="controll-buttons-vm">
      				<!-- <input type="checkbox" class="select-all" value="" data-toggle="tooltip" data-placement="bottom" title="Select All"> -->
      				
-     				<!-- <button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Refresh">
+     				<!-- <button type="button" class="btn btn-default con-but-vm" data-toggle="tooltip" data-placement="bottom" title="Refresh">
   					<i class="fa fa-refresh"></i>
 					</button> -->
 					
-					<div class="controll-btn-group">
-						<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Delete">
+					<div class="controll-btn-group-vm">
+						<button type="button" class="btn btn-default con-but-vm" data-toggle="tooltip" data-placement="bottom" title="Delete">
   						<i class="fa fa-trash"></i>
 						</button>
 					
-						<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Report as Spam">
+						<button type="button" class="btn btn-default con-but-vm" data-toggle="tooltip" data-placement="bottom" title="Report as Spam">
   						<i class="fa fa-exclamation-circle"></i>
 						</button>
 					
-						<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Archieve">
+						<button type="button" class="btn btn-default con-but-vm" data-toggle="tooltip" data-placement="bottom" title="Archieve">
   						<i class="fa fa-download"></i>
 						</button>
 						
 					</div>
 					
-					<div class="controll-btn-group-single-select">
-						<button type="button" class="btn btn-default con-but" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="Reply">
+					<div class="controll-btn-group-single-select-vm">
+						<button type="button" class="btn btn-default con-but-vm" aria-label="Left Align" data-toggle="tooltip" data-placement="bottom" title="Reply">
   						<i class="fa fa-reply"></i>
 						</button>
 					
-						<button type="button" class="btn btn-default con-but" data-toggle="tooltip" data-placement="bottom" title="Forward">
+						<button type="button" class="btn btn-default con-but-vm" data-toggle="tooltip" data-placement="bottom" title="Forward">
   						<i class="fa fa-share"></i>
 						</button>						
 					</div>
      				
      			
-     			</div>   	<!-- control button ends -->	
-  <%-- <div class="email-table">          
-  <table class="table">
+     			</div>   	<!-- control button ends -->
+     			
+     			<div class="from-to-view-mail">
+     			<div class="row no-pad">
+     				<div class="col-xs-2 col-md-1">
+     					<i class="fa fa-user fa-2x fa-border" aria-hidden="true"></i>
+     				</div>
+     				<div class="col-xs-10 col-md-11">
+     					<div class ="row no-pad">
+     					from: <%=msgHandler.getFromAddress()%>  <div class="pull-right"><%=msgHandler.getSentDateLong()%></div>
+     					</div>
+     					<div class="row no-pad">to: <%=msgHandler.getToAddress()%>
+     					<div class="btn-group">
+  						<button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     					<span class="caret"></span>
+  						</button>
+  							<ul class="dropdown-menu">
+  							<div class="row">
+  								<div class="col-md-4 col-xs-4">
+	  									<li>From: </li>
+								    	<li>To:</li>
+								    	<li>Subject:</li>
+								    	<li>Date:</li>
+
+  									
+  								</div>
+  								<div class="col-md-8 col-xs-8">
+  										<li><%=msgHandler.getFromAddress()%></li>
+								    	<li><%=msgHandler.getToAddress()%></li>
+								    	<li><%=msgHandler.getSubject()%></li>
+								    	<li><%=msgHandler.getSentDateLong()%></li>
+  									
+  								</div>
+  							</div>
+							</ul>  
+						</div>
+     					</div>
+     				</div> 
+     				
+     			</div>
+     			</div>	
+     			
+   <div class="email-table">          
+ <%--  <table class="table">
     <tbody>
     <%
- 		List<ListRow> mrows = b.buildPageSummary(p);
- 		for (int i = mrows.size() -1; i >= 0; i--){ 
-    		ListRow m = mrows.get(i);
+ 		//List<ListRow> mrows = b.buildPageSummary(p);
+ 		for (int i = 0; i <= 20; i++){ 
     		String paperClip = "";
-    		String seen="";
-    			if(m.isAttachment())
-    				paperClip = "fa fa-paperclip";
-    			if(m.isSeenflag())
-    				seen = "seen";
-    			else 
-    				seen = "unseen";
+    		String		seen = "unseen";
     
 	%>
-    <tr class="<%=seen%>" href="show.jsp?folder=<%=folder%>&msgID=<%=m.getMessageID()%>" >
+    <tr class="<%=seen%>" href="#" >
         <td><input type="checkbox" value="" name="<%=i%>"></td>
-        <td> <%=m.getFrom()%> </td>
-        <td><b><%=m.getSubject()%></b>    </td>
-        <td><i class="<%=paperClip%>"></i></td>
-        <td><%=m.getDate() %></td>
+        <td> helloooooo </td>
+        <td><b>boowakwalaaaaaaaaaaaa</b>    </td>
+        <td></td>
+        <td> 7 mins ago</td>
     </tr>
     <% } %>
       
     </tbody>
-  </table>
-  </div> --%>
+  </table> --%>
+  </div> 
      			
      		</div>    <!-- content ends -->
     	</div>    <!--col-md-12  ends  -->
@@ -366,6 +400,23 @@
    	fontFamily: 'HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif',
    	radius: 1
    	})
+   });
+
+</script>
+<script type="text/javascript">
+   $(document).ready(function(){
+   $('.demo-vm').initial({
+   	name: 'Name', // Name of the user
+   	charCount: 1, // Number of characherts to be shown in the picture.
+   	textColor: '#ffffff', // Color of the text
+   	seed: 0, // randomize background color
+   	height: 100,
+   	width: 100,
+   	fontSize: 60,
+   	fontWeight: 400,
+   	fontFamily: 'HelveticaNeue-Light,Helvetica Neue Light,Helvetica Neue,Helvetica, Arial,Lucida Grande, sans-serif',
+   	radius: 0
+   })
    });
 
 </script>
